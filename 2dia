@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 1</title>
+</head>
+
+<script>
+const nome = prompt("Qual o seu nome?");
+const idade = prompt("Quantos anos você tem?");
+const linguagem = prompt("Qual a linguagem que você está estudando?");
+const mensagem = "Ola ${nome}, voce tem ${idade} anos e ja esta aprendendo ${linguagem}!";
+
+alerta(mensagem);
+    
+</script>
+</html>
