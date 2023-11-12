@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Jogo Carreira Dev - 6º dia - 7DaysOfCode</title>
+</head>
+<script>
+let frutas = [];
+let laticinios = [];
+let congelados = [];
+let doces = [];
+
+function removerDaLista(removerAlimento) {
+    frutas.splice(frutas.indexOf(removerAlimento), 1);
+    laticinios.splice(laticinios.indexOf(removerAlimento), 1);
+    congelados.splice(congelados.indexOf(removerAlimento), 1);
+    doces.splice(doces.indexOf(removerAlimento), 1);
+}
+
+while (true) {
+    const resp = prompt('Deseja adicionar uma comida na sua lista (sim / não)? \n'
+        + 'Se deseja remover algum item da sua lista digite (remover).');
+
+    if (['sim', 'Sim', 'SIM', 's', 'S'].includes(resp)) {
+
+        const inserirComida = prompt('Olá, bem vindo ao organizador de listas para suas compras! \n'
+            + 'Qual comida você deseja inserir?');
+
+        const categoriaComida = prompt('Em qual dessas categorias o item informado se encaixa? \n'
+            + '1 - Frutas \n'
+            + '2 - Laticícios \n'
+            + '3 - Congelados \n'
+            + '4 - Doces');
+
+        if (categoriaComida == 1) {
+            frutas.push(inserirComida);
+            alert('Você adicionou um alimento na categoria - Fruta');
+        }
+
+        else if (categoriaComida == 2) {
+            laticinios.push(inserirComida);
+            alert('Você adicionou um alimento na categoria - Laticínios');
+        }
+
+        else if (categoriaComida == 3) {
+            congelados.push(inserirComida);
+            alert('Você adicionou um alimento na categoria - Congelados');
+        }
+
+        else if (categoriaComida == 4) {
+            doces.push(inserirComida);
+            alert('Você adicionou um alimento na categoria - Doces');
+        }
+
+        else {
+            alert('O alimento informado não foi cadastrado! \n'
+                + 'Por favor digite uma opção válida!');
+        }
+    }
+
+    else if (['não', 'NÃO', 'Não', 'nao', 'Nao', 'NAO', 'n', 'N'].includes(resp)) {
+        alert(`Obrigado por utilizar meu programa \n`
+            + `Lista de compras: \n`
+            + `Frutas: ${frutas.join(', ')} \n`
+            + `Laticínios: ${laticinios.join(', ')} \n`
+            + `Congelados: ${congelados.join(', ')} \n`
+            + `Doces: ${doces.join(', ')}`);
+        break;
+    }
+
+    else if (['remover', 'Remover', 'REMOVER', 'r', 'R'].includes(resp)) {
+        let removerAlimento = prompt(`Qual item deseja remover de acordo com sua lista atual? \n`
+            + `Lista de compras: \n`
+            + `Frutas: ${frutas.join(', ')} \n`
+            + `Laticínios: ${laticinios.join(', ')} \n`
+            + `Congelados: ${congelados.join(', ')} \n`
+            + `Doces: ${doces.join(', ')}`);
+
+        if (removerAlimento !== '') {
+            const encontrarNaLista = frutas.includes(removerAlimento) || laticinios.includes(removerAlimento) || congelados.includes(removerAlimento) || doces.includes(removerAlimento)
+            if (encontrarNaLista) {
+                removerDaLista(removerAlimento);
+                alert('O item foi removido da sua lista!');
+            }
+            else {
+                alert('O item informado não foi cadastrado! \n'
+                    + 'Por favor digite uma opção válida!');
+            }
+        }
+        else {
+            alert('Por favor, informe o item que deseja remover.');
+        }
+    }
+}
+</script>
+</html>
