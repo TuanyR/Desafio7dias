@@ -1,43 +1,29 @@
 <!DOCTYPE html>
-<html lang="PT-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Jogo Carreira Dev - 4º dia - 7DaysOfCode</title>
+    <title>Document</title>
 </head>
-<script>
-const prompt = require('prompt-sync')();
+<body>
+    <script>
+        const numeroAdivinhacao = 7;
+let chute = "";
+let acertou = false;
 
-const getRandom = (min, max) => {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-const guessNumber = (computerNumber) => {
-
-    let shot = prompt("Tente adivinhar, de 0 a 10 em qual número estou pensando?");
-    let chance = 2;
-    let isBingo = (shot == computerNumber);
-
-    if (isBingo) {
-        console.log(`Na mosca! O número que pensei foi ${computerNumber}`);
-    } else {
-        while (chance > 0 && !isBingo) {
-            shot = prompt(`Vamos lá vou te dar mais ${chance} chance(s)`);
-            isBingo = (shot == computerNumber);
-            chance -= 1;
-        }
-        (chance <= 0 && !isBingo) ? console.log(`Talvez na próxima você acerte. O número era ${computerNumber}`) : console.log(`Bingo! Acertou o número era mesmo ${computerNumber}`);
+for(let contador = 0; contador < 3; contador++){    
+    chute = prompt("Tente adivinhar o número de 0 a 10:");
+    if(chute == numeroAdivinhacao){
+        alert(`Parabéns, você acertou! O número era ${numeroAdivinhacao}.`);
+        acertou = true;
+        break;
     }
-
+    alert("Errado!");
 }
-
-(function () {
-    const computerNumber = getRandom(0, 10);    
-    guessNumber(computerNumber);
-})();
-</script>
+if(!acertou){
+    alert(`Infelizmente, você não acertou. O número era ${numeroAdivinhacao}!`);
+}
+    </script>
+    
+</body>
 </html>
